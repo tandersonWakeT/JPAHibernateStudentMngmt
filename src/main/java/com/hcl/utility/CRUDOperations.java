@@ -2,6 +2,10 @@ package com.hcl.utility;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
+import java.util.List;
+import java.util.ArrayList;
 
 import com.hcl.entity.Student;
 
@@ -64,13 +68,18 @@ public class CRUDOperations {
 		entityManager.close();
 	}
 	
-//	public void retrieveAllEntities() {
-//		
-//		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-//		entityManager.getTransaction().begin();
-//		
-//		Query sList = entityManager.createQuery("SELECT * FROM student");
-//		System.out.println(sList.toString());
-//		//return sList;
-//	}
+	public List<Student> retrieveAllEntities() {
+		
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		Query sQuery = entityManager.createQuery("SELECT s FROM student s");
+		
+		List<Student> sList = sQuery.getResultList();
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		return sList;
+	}
 }

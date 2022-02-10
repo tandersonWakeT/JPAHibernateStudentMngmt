@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-@Entity
+@Entity(name = "student")
 @Table(name = "student")
 public class Student {
 	
@@ -85,6 +85,6 @@ public class Student {
 	public String toString() {
 		
 		return "Student ID: " + this.id + "\nFirst Name: " + this.firstName + "\nLastName: "
-				+ this.lastName + "\nEmail: " + this.email;
+				+ this.lastName + "\nEmail: " + this.email + "\n";
 	}
 }

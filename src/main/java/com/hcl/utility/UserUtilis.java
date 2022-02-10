@@ -28,7 +28,7 @@ public class UserUtilis {
 			
 			try {
 				System.out.println("Enter 1 to Query\n" + "Enter 2 to Insert\n" + "Enter 3 to Update\n"
-						+ "Enter 4 to Delete\n" + "Enter any other key to Exit.");
+						+ "Enter 4 to Delete\n" + "Enter 5 to Display All\n" + "Enter any other key to Exit.");
 				guide = kb.nextInt();
 				kb.nextLine();
 			}
@@ -51,9 +51,9 @@ public class UserUtilis {
 			case 4:
 				deleteGuide();
 				break;
-//			case 5:
-//				displayAll();
-//				break;
+			case 5:
+				displayAll();
+				break;
 			case 0:
 				System.out.println("Program Ended");
 				flag = false;
@@ -169,13 +169,12 @@ public class UserUtilis {
 	}
 	
 	// Displays all Employees Information from the employee table
-//	public static void displayAll() {
-//		
-//		System.out.println("\nALL STUDENTS:\n");
-//		//List<Student> queriedStudents = 
-//		crudOp.retrieveAllEntities();
-//		
-//		//queriedStudents.stream()
-//		//   .forEach(System.out::println);
-//	}
+	public static void displayAll() {
+		
+		System.out.println("\nALL STUDENTS:\n");
+		List<Student> queriedStudents = crudOp.retrieveAllEntities();
+		
+		queriedStudents.stream()
+		   .forEach(System.out::println);
+	}
 }
